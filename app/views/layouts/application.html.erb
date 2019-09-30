@@ -7,9 +7,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <%= render "layouts/sub_layouts/header" %>
+      <%= render "layouts/sub_layouts/sidebar" %>
+      <div class="content-wrapper">
+        <%= render 'layouts/sub_layouts/breadcrumb' %>
+        <%= render 'layouts/sub_layouts/messages' %>
+        <section class="content">
+          <%= yield %>
+        </section>
+      </div>
+      <%= render "layouts/sub_layouts/footer" %>
+    </div>
   </body>
 </html>
