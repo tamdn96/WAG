@@ -6,12 +6,17 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.3' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0' # Use mysql as the database for Active Record
 gem 'puma', '~> 3.11' # Use Puma as the app server
-gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'carrierwave' # Classier solution for file uploads for Rails
+gem 'jquery-rails'
+
+# Use SCSS for stylesheets
+gem 'bootstrap', '~> 4.3.1'
+gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
+gem 'font-awesome-sass'
 
 # SNS login
 gem 'devise_token_auth' # Simple, secure token based authentication for Rails.
