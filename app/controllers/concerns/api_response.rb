@@ -17,11 +17,7 @@ module ApiResponse
   end
 
   def respond_404(error = nil, title = nil, source = nil)
-    if error.present?
-      render json: ErrorSerializer.to_error_json(Settings.error_code.not_found, error)
-    else
-      head :not_found
-    end
+    render json: ErrorSerializer.to_error_json(Settings.error_code.not_found, error)
   end
 
   def respond_409(error = nil, title = nil, source = nil)

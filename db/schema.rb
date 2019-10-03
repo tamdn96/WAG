@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_140811) do
+ActiveRecord::Schema.define(version: 2019_10_03_174503) do
 
   create_table "garbages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "qrcode"
@@ -62,6 +62,11 @@ ActiveRecord::Schema.define(version: 2019_10_01_140811) do
     t.string "encrypted_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "token"
+    t.datetime "expires_in"
+    t.index ["email", "provider", "token"], name: "index_users_on_email_and_provider_and_token"
+    t.index ["email", "provider"], name: "index_users_on_email_and_provider", unique: true
   end
 
   add_foreign_key "reports", "users"
