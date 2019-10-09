@@ -12,7 +12,7 @@ module TokenAuth
     provider = request.headers['provider']
     access_token = request.headers['access-token']
 
-    @current_user = User.auth_user(email, provider, access_token)
+    @current_user = User.auth_user(email, provider, access_token).first
   end
 
   def current_user

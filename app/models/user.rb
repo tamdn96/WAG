@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :reports, dependent: :destroy
 
   validates :email, presence: true, uniqueness: { scope: :provider }
-  validates :token, presence: true
+  # validates :token, presence: true
 
   scope :_email_and_provider, -> (email, provider) {
     where(email: email, provider: provider)

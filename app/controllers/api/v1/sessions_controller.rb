@@ -1,26 +1,28 @@
 module Api::V1
   class SessionsController < ApiController
-    skip_after_action :update_auth_header, only: :create
+    before_action :set_user_by_token, only: :destroy
+    skip_after_action :update_auth_header, only: [:create, :destroy]
 
     def create
-      user = User._email_and_provider(params[:email], params[:provider]).first
-      if user.present?
-        if user.update_attributes(params_update_token)
-          @current_user = user
-          update_auth_header
-          respond_200
-        else
-          respond_400(user.errors)
-        end
+      user = User.find_or_initialize_by(email: params[:email], provider: params[:provider])
+      user.token = params[:'access-token']
+      user.fullname = params[:fullname]
+      if user.save
+        @current_user = user
+        update_auth_header
+        respond_200
       else
-        respond_404('User not found, register before login')
+        respond_400(user.errors)
       end
     end
 
-    private
-
-    def params_update_token
-      params.permit(:token)
+    def destroy
+      return respond_404 unless current_user
+      if current_user.update_attributes(token: nil)
+        respond_200
+      else
+        respond_400(current_user.errors)
+      end
     end
   end
 end
