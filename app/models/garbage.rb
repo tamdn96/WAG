@@ -8,4 +8,6 @@ class Garbage < ApplicationRecord
 
   enum status: [:ok, :nok]
   enum level: [:low, :mid, :high]
+
+  scope :_qrcode, -> (qrcode) { where(qrcode: qrcode) }
 end
