@@ -1,4 +1,4 @@
 class Garbages::GarbageNearestSerializer < GarbageSerializer
   set_type :garbage
-  attributes :lat, :long, :address
+  attributes :latitude, :longitude, :address
 end
