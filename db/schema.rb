@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_174503) do
+ActiveRecord::Schema.define(version: 2019_10_11_175741) do
 
   create_table "garbages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "qrcode"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2019_10_03_174503) do
   create_table "positions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "positionable_type"
     t.bigint "positionable_id"
-    t.float "lat"
-    t.float "long"
+    t.float "latitude"
+    t.float "longitude"
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

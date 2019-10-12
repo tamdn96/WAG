@@ -6,7 +6,8 @@ module Api::V1
 
     def nearest
       # TODO: use lat long to calc garbages near
-      garbages = Garbage.all.includes(:position)
+      nearest_positions_ids = Position.nearest([params[:latitude], params[:longitude]]).map(&:id)
+      garbages = Garbage.has_positions_ids(nearest_positions_ids)
       respond_200(::Garbages::GarbageNearestSerializer.new(garbages).serializable_hash)
     end
 
@@ -17,7 +18,7 @@ module Api::V1
     private
 
     def position_params
-      params.permit(:lat, :long)
+      params.permit(:latitude, :longitude)
     end
 
     def get_garbage_by_qrcode
