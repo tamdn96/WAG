@@ -3,8 +3,8 @@ module Api::V1
     before_action :authenticate_user!
 
     def create
-      report = Event.new(event_params.merge(user: current_user))
-      if report.save
+      event = Event.new(event_params.merge(user: current_user))
+      if event.save
         respond_200
       else
         respond_404
@@ -31,18 +31,5 @@ module Api::V1
         )
       }
     end
-
-    # def get_reportable(report)
-    #   if report.report?
-    #     reportable = params[:report][:garbage_id].present? ? Garbage.find_by(id: params[:report][:garbage_id]) : Landfill.create(landfill_params)
-    #   else
-    #     reportable = Landfill.find_by(id: report.landfill_id)
-    #   end
-    #   report.assign_attributes(reportable: reportable)
-    # end
-
-    # def landfill_params
-    #   params.require(:report).permit(:status)
-    # end
   end
 end
