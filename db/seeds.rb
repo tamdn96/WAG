@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+EventJoiner.delete_all
+Position.delete_all
+Report.delete_all
+Event.delete_all
+Landfill.delete_all
 Garbage.delete_all
 User.delete_all
 
@@ -18,7 +23,7 @@ User.create!(
 garbages = [
   {qrcode: '123abc', name: 'sample garbage 1', status: 'clean', level: 'low'},
   {qrcode: '1234abc', name: 'sample garbage 2', status: 'warning', level: 'mid'},
-  {qrcode: '12345abc', name: 'sample garbage 3', status: 'danger', level: 'high'}
+  {qrcode: '12345abc', name: 'sample garbage 3', status: 'overflow', level: 'high'}
 ]
 
 garbages_position = [
