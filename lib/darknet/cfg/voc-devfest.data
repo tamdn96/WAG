@@ -1,0 +1,6 @@
+classes= 1
+train  = /home/sonvt/YOLO-Annotation-Tool/train.txt
+valid  = /home/sonvt/YOLO-Annotation-Tool/test.txt
+names = data/voc-sonvt.names
+backup = backup
+
