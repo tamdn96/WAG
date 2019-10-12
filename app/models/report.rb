@@ -17,11 +17,12 @@ class Report < ApplicationRecord
 
   def detect_image
     source_img = self.image.path
-    fname = Time.now source_img.split('/').last
+    fname = (Time.now.to_f * 1000).floor.to_s + source_img.split('/').last.to_s
     Dir.mkdir(Rails.root.join('tmp/detect_images')) unless Dir.exist?(Rails.root.join('tmp/detect_images'))
-    image_detected = "#{Rails.root}/tmp/detect_images/"
-    # use python detect hear
+    image_detected = "#{Rails.root}/tmp/detect_images/#{fname}"
+    # system(`cd lib/darknet && ./darknet detector test data/garbage-1.jpg 123 > result.txt`)
+    # # use python detect hear
     status_detected = 'clear'
-    self.update_attributes(image_detect: File.open(image_detected), status_detect: status_detected)
+    self.update_attributes(image_detect: File.open(source_img), status_detect: status_detected)
   end
 end

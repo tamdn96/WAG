@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'test', to: 'garbages#test'
       # post 'register', to: 'registrations#create'
-      post 'login', to: 'sessions#create'
-      delete 'logout', to: 'sessions#destroy'
+      # post 'login', to: 'sessions#create'
+      # delete 'logout', to: 'sessions#destroy'
       get 'garbages/nearest', to: 'garbages#nearest'
       get 'garbages/show/:qrcode', to: 'garbages#show'
       post 'reports', to: 'reports#create'
