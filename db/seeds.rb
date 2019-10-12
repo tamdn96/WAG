@@ -22,9 +22,9 @@ garbages = [
 ]
 
 garbages_position = [
-  {lat: 12.12345, long: 12.12345, address: 'DN'},
-  {lat: 12.123456, long: 12.123456, address: 'DN'},
-  {lat: 12.123457, long: 12.123457, address: 'DN'}
+  {latitude: 12.12345, longitude: 12.12345, address: 'DN'},
+  {latitude: 12.123456, longitude: 12.123456, address: 'DN'},
+  {latitude: 12.123457, longitude: 12.123457, address: 'DN'}
 ]
 
 garbages.each_with_index do |gb, idx|
