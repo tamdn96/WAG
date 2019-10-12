@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Garbage.delete_all
+User.delete_all
+
+User.create!(
+  email: 'ngoctam3096@gmail.com',
+  provider: 'facebook',
+  token: 'this_is_my_t0k3n'
+)
 
 garbages = [
   {qrcode: '123abc', name: 'sample garbage 1', status: 'ok', level: 'low'},

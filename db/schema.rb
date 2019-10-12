@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_11_175741) do
+ActiveRecord::Schema.define(version: 2019_10_12_065117) do
+
+  create_table "event_joiners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_joiners_on_event_id"
+    t.index ["user_id"], name: "index_event_joiners_on_user_id"
+  end
+
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "time_start"
+    t.text "description"
+    t.integer "status"
+    t.integer "level"
+    t.string "image"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
 
   create_table "garbages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "qrcode"
@@ -52,6 +74,8 @@ ActiveRecord::Schema.define(version: 2019_10_11_175741) do
     t.integer "report_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_detect"
+    t.integer "status_detect"
     t.index ["reportable_type", "reportable_id"], name: "index_reports_on_reportable_type_and_reportable_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
@@ -69,5 +93,8 @@ ActiveRecord::Schema.define(version: 2019_10_11_175741) do
     t.index ["email", "provider"], name: "index_users_on_email_and_provider", unique: true
   end
 
+  add_foreign_key "event_joiners", "events"
+  add_foreign_key "event_joiners", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "reports", "users"
 end

@@ -6,7 +6,7 @@ class Garbage < ApplicationRecord
   delegate :longitude, to: :position, allow_nil: true
   delegate :address, to: :position, allow_nil: true
 
-  enum status: [:ok, :nok]
+  enum status: [:clean, :warning, :overflow]
   enum level: [:low, :mid, :high]
 
   scope :_qrcode, -> (qrcode) { where(qrcode: qrcode) }

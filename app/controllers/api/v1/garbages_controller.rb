@@ -1,8 +1,12 @@
 module Api::V1
   class GarbagesController < ApiController
-    before_action :set_user_by_token
+    # before_action :set_user_by_token
     before_action :authenticate_user!
     before_action :get_garbage_by_qrcode, only: :show
+
+    def test
+      respond_200
+    end
 
     def nearest
       # TODO: use lat long to calc garbages near

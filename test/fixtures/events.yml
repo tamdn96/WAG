@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time_start: 2019-10-12 10:32:17
+  desc: MyText
+  status: 1
+  level: 1
+  image: MyString
+  user: one
+
+two:
+  time_start: 2019-10-12 10:32:17
+  desc: MyText
+  status: 1
+  level: 1
+  image: MyString
+  user: two
