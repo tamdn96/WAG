@@ -21,15 +21,23 @@ User.create!(
 )
 
 garbages = [
-  {qrcode: '123abc', name: 'sample garbage 1', status: 'clean', level: 'low'},
-  {qrcode: '1234abc', name: 'sample garbage 2', status: 'warning', level: 'mid'},
-  {qrcode: '12345abc', name: 'sample garbage 3', status: 'overflow', level: 'high'}
+  {qrcode: '12125abc', name: 'sample 4', status: 'overflow', level: 'high'},
+  {qrcode: '12855abc', name: 'sample 5', status: 'warning', level: 'high'},
+  {qrcode: '12ab5abc', name: 'sample 6', status: 'warning', level: 'high'},
+  {qrcode: '12315abc', name: 'sample 7', status: 'clean', level: 'low'},
+  {qrcode: '123a9abc', name: 'sample 8', status: 'overflow', level: 'low'},
+  {qrcode: '983a9abc', name: 'sample 9', status: 'warning', level: 'low'},
+  {qrcode: '123a9aDc', name: 'sample 10', status: 'clean', level: 'low'},
 ]
 
 garbages_position = [
-  {latitude: 12.12345, longitude: 12.12345, address: 'DN'},
-  {latitude: 12.123456, longitude: 12.123456, address: 'DN'},
-  {latitude: 12.123457, longitude: 12.123457, address: 'DN'}
+  {latitude: 16.0475075, longitude: 108.2258765, address: 'Green Island Villa, Lo A2.7, Đảo Xanh 4, Hòa Cường, Đà Nẵng, 55000, Việt Nam'},
+  {latitude: 16.0480162, longitude: 108.2270324, address: 'Nơm Bistro Danang, the Villas of Green Island, Lot 01-A4 Zone of, Hòa Cường, Hải Châu, Đà Nẵng 550000, Việt Nam'},
+  {latitude: 16.0468802, longitude: 108.2274747, address: 'Zoneland Apartments Green Island Villa, Lot 9-A4 Zone of the, Hòa Cường, Hải Châu, Đà Nẵng 550000, Việt Nam'},
+  {latitude: 16.0456282, longitude: 108.2262986, address: 'Đảo Xanh Sky Villas, Đảo Xanh 1, Hoà Cường Bắc, Hải Châu, Đà Nẵng 550000, Việt Nam'},
+  {latitude: 16.075166, longitude: 108.2212859, address: '9 Quang Trung, Hải Châu 1, Hải Châu, Đà Nẵng 550000, Việt Nam'},
+  {latitude: 16.0758277, longitude: 108.2230118, address: 'Indochine Box Juice bar & Cafe, 40 Bạch Đằng, Thạch Thang, Hải Châu, Đà Nẵng 550000, Việt Nam'},
+  {latitude: 16.074165, longitude: 108.2219564, address: 'Công Ty Tnhh Mtv Thương Mại Và Du Lịch Trân Châu, 32-34 Đường Trần Phú, Hải Châu 1, Hải Châu, Đà Nẵng 550000, Việt Nam'},
 ]
 
 garbages.each_with_index do |gb, idx|
