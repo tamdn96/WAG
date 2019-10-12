@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  mount_uploader :image, EventImageUploader
   belongs_to :user
   has_one :position, as: :positionable, dependent: :destroy
   has_many :event_joiners, dependent: :destroy
