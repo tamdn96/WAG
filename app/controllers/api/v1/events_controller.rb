@@ -16,7 +16,12 @@ module Api::V1
       nearest_positions_ids = Position._positionable_type('Event').nearest([params[:latitude], params[:longitude]]).map(&:id)
       nearest_events = Event.has_positions_ids(nearest_positions_ids)._nearest_in_this_week
       suggest_events = Event._suggest_in_this_week
-      respond_200(::EventSerializer.new(hot_events + nearest_events + suggest_events).serializable_hash)
+      respond_200(::Events::CurrentWeekSerializer.new(hot_events + nearest_events + suggest_events).serializable_hash)
+    end
+
+    def incomming
+      events = Event._incomming
+      respond_200(::EventSerializer.new(events).serializable_hash)
     end
 
     private

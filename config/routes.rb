@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'report/:id', to: 'reports#show'
       post 'events', to: 'events#create'
       get 'events/current_week', to: 'events#index_current_week'
+      get 'events/incomming', to: 'events#incomming'
     end
   end
 end

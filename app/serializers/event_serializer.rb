@@ -4,5 +4,4 @@ class EventSerializer
   attribute :image do |obj|
     Settings.host_url + obj.image.url
   end
-  attribute :group_event
 end
