@@ -16,9 +16,9 @@ User.create!(
 )
 
 garbages = [
-  {qrcode: '123abc', name: 'sample garbage 1', status: 'ok', level: 'low'},
-  {qrcode: '1234abc', name: 'sample garbage 2', status: 'nok', level: 'mid'},
-  {qrcode: '12345abc', name: 'sample garbage 3', status: 'nok', level: 'high'}
+  {qrcode: '123abc', name: 'sample garbage 1', status: 'clean', level: 'low'},
+  {qrcode: '1234abc', name: 'sample garbage 2', status: 'warning', level: 'mid'},
+  {qrcode: '12345abc', name: 'sample garbage 3', status: 'danger', level: 'high'}
 ]
 
 garbages_position = [

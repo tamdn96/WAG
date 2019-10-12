@@ -1,40 +1,36 @@
 module Api::V1
   class EventsController < ApiController
-    # before_action :authenticate_user!
+    before_action :authenticate_user!
 
-    # def create
-    #   report = Event.new(event_params.merge(user: current_user))
-    #   get_reportable(report)
-    #   if report.save
-    #     respond_200
-    #   else
-    #     respond_404
-    #   end
-    # end
+    def create
+      report = Event.new(event_params.merge(user: current_user))
+      if report.save
+        respond_200
+      else
+        respond_404
+      end
+    end
 
-    # private
+    private
 
-    # def event_params
-    #   params.require(:event).permit(
-    #     :title,
-    #     :time_start,
-    #     :desc,
-    #     :image,
-    #     :status,
-    #     :note,
-    #     :report_type
-    #   ).merge(position_nested_params)
-    # end
+    def event_params
+      params.require(:event).permit(
+        :title,
+        :time_start,
+        :description,
+        :image,
+      ).merge(position_nested_params)
+    end
 
-    # def position_nested_params
-    #   {
-    #     position_attributes: params.require(:report).permit(
-    #       :latitude,
-    #       :longitude,
-    #       :address
-    #     )
-    #   }
-    # end
+    def position_nested_params
+      {
+        position_attributes: params.require(:report).permit(
+          :latitude,
+          :longitude,
+          :address
+        )
+      }
+    end
 
     # def get_reportable(report)
     #   if report.report?
