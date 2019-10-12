@@ -1,6 +1,7 @@
 module Api::V1
   class ReportsController < ApiController
     before_action :authenticate_user!
+    before_action :get_report, only: :show
 
     def create
       report = Report.new(report_params.merge(user: current_user))
@@ -18,7 +19,16 @@ module Api::V1
       # olddays_reports = current_user.reports.includes(:position).olddays._created_at_desc
     end
 
+    def show
+      respond_200(::Reports::ShowSerializer.new(@report).serializable_hash)
+    end
+
     private
+
+    def get_report
+      @report = Report.find_by(id: params[:id])
+      return respond_404 unless @report
+    end
 
     def report_params
       params.require(:report).permit(

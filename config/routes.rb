@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'garbages/show/:qrcode', to: 'garbages#show'
       post 'reports', to: 'reports#create'
       get 'reports/histories', to: 'reports#index'
+      get 'report/:id', to: 'reports#show'
       post 'events', to: 'events#create'
     end
   end
