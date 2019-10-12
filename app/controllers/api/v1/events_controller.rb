@@ -24,7 +24,7 @@ module Api::V1
 
     def position_nested_params
       {
-        position_attributes: params.require(:report).permit(
+        position_attributes: params.require(:event).permit(
           :latitude,
           :longitude,
           :address
