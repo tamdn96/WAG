@@ -6,12 +6,23 @@ class Report < ApplicationRecord
   belongs_to :user
   has_one :position, as: :positionable, dependent: :destroy
 
+  delegate :latitude, to: :position, allow_nil: true
+  delegate :longitude, to: :position, allow_nil: true
+  delegate :address, to: :position, allow_nil: true
+
   enum status: [:clean, :warning, :overflow]
   enum report_type: [:report, :contribute]
 
-  accepts_nested_attributes_for :position
+  scope :_created_at_desc, -> {order(created_at: :desc)}
+  scope :today, -> {
+    where('DATE(created_at) = ?', Date.today)
+  }
+  scope :olddays, -> {
+    where('DATE(created_at) < ?', Date.today)
+  }
 
   after_create :detect_image
+  accepts_nested_attributes_for :position
 
   private
 

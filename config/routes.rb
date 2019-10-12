@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'garbages/nearest', to: 'garbages#nearest'
       get 'garbages/show/:qrcode', to: 'garbages#show'
       post 'reports', to: 'reports#create'
+      get 'reports/histories', to: 'reports#index'
       post 'events', to: 'events#create'
     end
   end

@@ -12,6 +12,12 @@ module Api::V1
       end
     end
 
+    def index
+      reports = current_user.reports.includes(:position)._created_at_desc
+      respond_200(::Reports::IndexSerializer.new(reports).serializable_hash)
+      # olddays_reports = current_user.reports.includes(:position).olddays._created_at_desc
+    end
+
     private
 
     def report_params
