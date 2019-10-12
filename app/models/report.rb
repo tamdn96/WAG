@@ -22,8 +22,6 @@ class Report < ApplicationRecord
   private
 
   def detect_image
-    p self.errors
-    return if self.errors.present?
     source_img = self.image.path
     fname = (Time.now.to_f * 1000).floor.to_s + source_img.split('/').last.to_s
     Dir.mkdir(Rails.root.join('tmp/detect_images')) unless Dir.exist?(Rails.root.join('tmp/detect_images'))
