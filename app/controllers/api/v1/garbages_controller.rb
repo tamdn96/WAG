@@ -12,7 +12,8 @@ module Api::V1
       # TODO: use lat long to calc garbages near
       nearest_positions_ids = Position.nearest([params[:latitude], params[:longitude]]).map(&:id)
       garbages = Garbage.has_positions_ids(nearest_positions_ids)
-      respond_200(::Garbages::GarbageNearestSerializer.new(garbages).serializable_hash)
+      landfills = Landfill.nearest_position(nearest_positions_ids)
+      respond_200(::Garbages::GarbageNearestSerializer.new(garbages + landfills).serializable_hash)
     end
 
     def show

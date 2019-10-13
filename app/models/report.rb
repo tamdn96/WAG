@@ -15,6 +15,12 @@ class Report < ApplicationRecord
   enum status_detect: [:no , :yes]
 
   scope :_created_at_desc, -> {order(created_at: :desc)}
+  scope :has_positions_ids, -> (p_ids) {
+    joins(:position).where('positions.id': p_ids )
+  }
+  scope :_reportable_type, -> (type) {
+    where(reportable_type: type)
+  }
 
   after_create :detect_image
   accepts_nested_attributes_for :position

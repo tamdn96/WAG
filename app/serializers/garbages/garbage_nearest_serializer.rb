@@ -1,4 +1,7 @@
-class Garbages::GarbageNearestSerializer < GarbageSerializer
-  set_type :garbage
-  attributes :latitude, :longitude, :address
+class Garbages::GarbageNearestSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :latitude, :longitude, :address, :status
+  attribute :type do |obj|
+    obj.class.to_s
+  end
 end
