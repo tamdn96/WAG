@@ -22,6 +22,10 @@ class Report < ApplicationRecord
     where(reportable_type: type)
   }
 
+  scope :_status_detect, -> (stt) {
+    where(status_detect: stt)
+  }
+
   after_create :detect_image
   accepts_nested_attributes_for :position
 

@@ -12,7 +12,7 @@ class Landfill < ApplicationRecord
 
   class << self
     def nearest_position(p_ids)
-      rp_ids = Report._reportable_type('Landfill').has_positions_ids(p_ids).map(&:id)
+      rp_ids = Report._reportable_type('Landfill')._status_detect('yes').has_positions_ids(p_ids).map(&:id)
       has_report_ids(rp_ids)
     end
   end
