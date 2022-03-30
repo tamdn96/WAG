@@ -5,7 +5,7 @@ ruby '2.5.1'
 
 gem 'rails', '~> 5.2.3' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0' # Use mysql as the database for Active Record
-gem 'puma', '~> 3.11' # Use Puma as the app server
+gem 'puma', '~> 4.3' # Use Puma as the app server
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
